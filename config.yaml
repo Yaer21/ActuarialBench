@@ -1,0 +1,121 @@
+# Model Configuration
+contamination_search:
+  provider: serpapi
+  engine: google
+  base_url: https://serpapi.com/search.json
+  api_key_env: SERPAPI_KEY
+  num_results: 10
+  timeout_seconds: 60
+  query_mode: 20gram_exact_phrase
+
+models:
+
+  # ============================================================
+  # Closed-source Models
+  # ============================================================
+
+  # GPT-5.5
+  GPT-5.5:
+    index: 1
+    provider: openai
+    platform: CaMeL AI
+    model_name: gpt-5.5
+    base_url: https://api.kr777.top/v1
+    api_key_env: CAMELAI_API_KEY
+    force_stream: true
+    temperature: 1
+
+
+  # Claude Opus 4.7
+  Claude-Opus-4.7:
+    index: 2
+    provider: anthropic
+    platform: CaMeL AI
+    model_name: claude-opus-4-7
+    base_url: https://api.kr777.top/v1
+    api_key_env: CAMELAI_API_KEY
+    temperature: 1
+    timeout: 600
+    retry_times: 1
+    enable_thinking: true
+    thinking_type: adaptive
+    thinking_level: high
+    output_effort: high
+
+  # Gemini 3.1 Pro
+  Gemini-3.1-Pro:
+    index: 3
+    provider: google
+    platform: CaMeL AI
+    model_name: gemini-3.1-pro-preview
+    base_url: https://api.kr777.top/v1
+    api_key_env: CAMELAI_API_KEY
+    temperature: 1
+    enable_thinking: true
+    thinking_level: high
+
+  # DeepSeek V4 Pro
+  DeepSeek-V4-Pro:
+    index: 4
+    provider: deepseek
+    model_name: deepseek-v4-pro
+    base_url: https://api.deepseek.com
+    api_key_env: DEEPSEEK_API_KEY
+    temperature: 1
+    enable_thinking: true
+    reasoning_effort: high
+
+  # Kimi 2.6
+  Kimi-2.6:
+    index: 5
+    provider: kimi
+    model_name: kimi-k2.6
+    base_url: https://api.moonshot.cn/v1
+    api_key_env: MOONSHOT_API_KEY
+    deep_think: true
+    retry_times: 1
+
+  # Qwen3.6 Plus
+  Qwen3.6-Plus:
+    index: 6
+    provider: qwen
+    model_name: qwen3.6-plus-2026-04-02
+    base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    api_key_env: DASHSCOPE_API_KEY
+    temperature: 1
+    enable_thinking: true
+    thinking_tokens: 10000
+
+  # ============================================================
+  # Open-source Models
+  # ============================================================
+
+  # Qwen3.5 35B A3B
+  Qwen3.5-35B-A3B:
+    index: 7
+    model_name: qwen3.6-35b-a3b
+    base_url: your local deployment URL
+    api_key_env: VLLM_API_KEY
+    temperature: 0.7
+    chat_template_kwargs:
+      enable_thinking: false
+
+  # Qwen3 14B
+  Qwen3-14B:
+    index: 8
+    model_name: Qwen3-14B-vLLM
+    base_url: your local deployment URL
+    api_key_env: VLLM_API_KEY
+    temperature: 1
+    max_tokens: 1024
+    chat_template_kwargs:
+      enable_thinking: false
+
+  # Gemma 3 12B IT
+  Gemma-3-12B-IT:
+    index: 9
+    model_name: your local deployment URL
+    base_url: http://localhost:8000/v1
+    api_key_env: VLLM_API_KEY
+    temperature: 1
+  

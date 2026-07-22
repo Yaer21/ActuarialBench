@@ -1,0 +1,14 @@
+services:
+  bench:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: ins-actbench-runtime:latest
+    working_dir: /workspace
+    environment:
+      SOFFICE_PATH: /usr/bin/soffice
+      LIBREOFFICE_PATH: /usr/bin/soffice
+    volumes:
+      - ..:/workspace
+    stdin_open: true
+    tty: true
